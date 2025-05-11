@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>טופס אבחון ראשוני לכלב</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Heebo', sans-serif;
+      direction: rtl;
+      background: linear-gradient(135deg, #e0f7fa, #fff);
+      margin: 0;
+      padding: 40px 10px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #006064;
+    }
+    form {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #b0bec5;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+    .checkbox-group, .radio-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px 30px;
+      margin-top: 10px;
+    }
+    .section-title {
+      font-weight: 700;
+      font-size: 1.1em;
+      color: #004d40;
+      margin-top: 35px;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #00796b;
+      color: white;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #output {
+      background: #fff;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .entry {
+      margin-bottom: 12px;
+    }
+    .entry strong {
+      color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <h1>טופס אבחון ראשוני לכלב</h1>
+  <form id="dogForm">
+    <label>שם הכלב <input type="text" name="dog_name"></label>
+    <label>מין הכלב <select name="gender"><option>זכר</option><option>נקבה</option></select></label>
+    <label>סוג הכלב <input type="text" name="breed"></label>
+    <label>גיל הכלב <input type="text" name="age"></label>
+    <label>משקל הכלב <input type="text" name="weight"></label>
+    <label>מסורס / לא מסורס <select name="neutered"><option>מסורס</option><option>לא מסורס</option></select></label>
+    <label>באיזה גיל הכלב אצלך <input type="text" name="age_with_owner"></label>
+    <label>האם בחרת\מצאת את הכלב <select name="origin"><option>בחרתי</option><option>מצאתי</option></select></label>
+    <label>מגורים <select name="residence"><option>בית</option><option>גינה</option><option>דירת שותפים</option></select></label>
+    <label>האם יש בעלי חיים נוספים בבית? פרט <textarea name="other_animals"></textarea></label>
+    <label>כמה טיולים ביום הוא מקבל <input type="text" name="walks_per_day"></label>
+    <label>סוג פעילות שהכלב מקבל ביום יום <textarea name="activities"></textarea></label>
+    <label>מי הווטרינר <input type="text" name="vet"></label>
+    <label>האם יש בעיות רפואיות <textarea name="medical_issues"></textarea></label>
+    <label>פירוט בעיות התנהגות בהן תרצה לטפל <textarea name="behavior_issues"></textarea></label>
+    <label>האם עבר אילוף מקצועי בעבר <select name="trained_before"><option>כן</option><option>לא</option></select></label>
+
+    <div class="section-title">סמן התנהגות המאפיינת את הכלב שלך:</div>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="behavior" value="הריסת חפצים"> הרס בית וחפצים</label>
+      <label><input type="checkbox" name="behavior" value="תוקפנות לכלבים"> תוקפנות לכלבים</label>
+      <label><input type="checkbox" name="behavior" value="תוקפנות לאנשים"> תוקפנות לאנשים</label>
+      <label><input type="checkbox" name="behavior" value="קפיצות על אורחים"> קפיצות על אורחים בבית</label>
+      <label><input type="checkbox" name="behavior" value="נשיכות בטיולים"> נשיכות בטיולים</label>
+      <label><input type="checkbox" name="behavior" value="נשיכות מתוך משחק"> נשיכות מתוך משחק</label>
+      <label><input type="checkbox" name="behavior" value="נביחות\יללות בעת עזיבת הבית"> נביחות\יללות בעת עזיבת הבית</label>
+      <label><input type="checkbox" name="behavior" value="צרכים בבית"> צרכים בבית</label>
+      <label><input type="checkbox" name="behavior" value="חפירת בורות"> חפירת בורות</label>
+      <label><input type="checkbox" name="behavior" value="אכילת אוכל שלך"> תחתונים ורצון לאכול מהאוכל שלך</label>
+    </div>
+    <label>התנהגויות נוספות שתרצה לציין <textarea name="other_behavior"></textarea></label>
+
+    <div class="section-title">אילו פקודות חשוב לך ללמד את הכלב:</div>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="commands" value="שב"> שב</label>
+      <label><input type="checkbox" name="commands" value="ארצה"> ארצה</label>
+      <label><input type="checkbox" name="commands" value="למקום"> למקום</label>
+      <label><input type="checkbox" name="commands" value="יד"> יד</label>
+      <label><input type="checkbox" name="commands" value="UP"> UP</label>
+      <label><input type="checkbox" name="commands" value="עמידה על 2 רגליים"> לעמוד על 2 רגליים</label>
+    </div>
+    <label>פקודות נוספות שתרצה ללמד <textarea name="other_commands"></textarea></label>
+
+    <div class="section-title">כמה מפגשי אילוף הכלב צריך:</div>
+    <div class="radio-group">
+      <label><input type="radio" name="training_sessions" value="3–4"> 3–4</label>
+      <label><input type="radio" name="training_sessions" value="5–6"> 5–6</label>
+      <label><input type="radio" name="training_sessions" value="7–9"> 7–9</label>
+      <label><input type="radio" name="training_sessions" value="כמה שאצטרך"> כמה שאצטרך</label>
+      <label><input type="radio" name="training_sessions" value="לא יודע"> לא יודע</label>
+    </div>
+
+    <label>האם הכלב נשך בעבר אדם? במידה וכן פרט על המקרה <textarea name="bite_incident"></textarea></label>
+    <label>ספר מה אתה אוהב בכלב שלך <textarea name="dog_love"></textarea></label>
+    <label>מה חשוב לך ומה ייחשב מבחינתך לאילוף מוצלח <textarea name="success_definition"></textarea></label>
+    <label>תאר לי כיצד אתה רואה את הכלב לאחר האילוף <textarea name="after_training"></textarea></label>
+    <label>הערות נוספות <textarea name="notes"></textarea></label>
+    <button type="button" onclick="displayFormData()">הצג את הנתונים</button>
+    <button type="button" onclick="downloadAsTxt()">הורד כקובץ TXT</button>
+  </form>
+
+  <div id="output">
+    <h2>תצוגת הנתונים שמולאו בטופס</h2>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function collectFormEntries() {
+      const form = document.getElementById('dogForm');
+      const data = new FormData(form);
+      const entries = {};
+
+      for (let [key, value] of data.entries()) {
+        if (!entries[key]) {
+          entries[key] = value;
+        }
+      }
+
+      const behaviorBoxes = form.querySelectorAll('input[name="behavior"]:checked');
+      const behaviors = Array.from(behaviorBoxes).map(cb => cb.value);
+      entries['behavior'] = behaviors.join(', ');
+
+      const commandBoxes = form.querySelectorAll('input[name="commands"]:checked');
+      const commands = Array.from(commandBoxes).map(cb => cb.value);
+      entries['commands'] = commands.join(', ');
+
+      return entries;
+    }
+
+    function displayFormData() {
+      const output = document.getElementById('result');
+      output.innerHTML = '';
+      const entries = collectFormEntries();
+
+      for (const key in entries) {
+        const div = document.createElement('div');
+        div.className = 'entry';
+        div.innerHTML = `<strong>${translateLabel(key)}:</strong> ${entries[key]}`;
+        output.appendChild(div);
+      }
+    }
+
+    function downloadAsTxt() {
+      const entries = collectFormEntries();
+      let content = `טופס אבחון ראשוני לכלב\n\n`;
+      for (const key in entries) {
+        content += `${translateLabel(key)}: ${entries[key]}\n`;
+      }
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'אבחון_לכלב.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function translateLabel(key) {
+      const labels = {
+        dog_name: 'שם הכלב',
+        gender: 'מין הכלב',
+        breed: 'סוג הכלב',
+        age: 'גיל הכלב',
+        weight: 'משקל הכלב',
+        neutered: 'מסורס / לא מסורס',
+        age_with_owner: 'באיזה גיל הכלב אצלך',
+        origin: 'האם בחרת/מצאת את הכלב',
+        residence: 'מגורים',
+        other_animals: 'בעלי חיים נוספים בבית',
+        walks_per_day: 'מספר טיולים ביום',
+        activities: 'סוג פעילות יומית',
+        vet: 'הווטרינר',
+        medical_issues: 'בעיות רפואיות',
+        behavior_issues: 'בעיות התנהגות',
+        trained_before: 'עבר אילוף מקצועי',
+        behavior: 'התנהגויות',
+        other_behavior: 'התנהגויות נוספות',
+        commands: 'פקודות חשובות',
+        other_commands: 'פקודות נוספות',
+        training_sessions: 'מספר מפגשי אילוף',
+        bite_incident: 'נשיכה בעבר',
+        dog_love: 'מה אתה אוהב בכלב שלך',
+        success_definition: 'מה נחשב לאילוף מוצלח',
+        after_training: 'איך תראה את הכלב לאחר האילוף',
+        notes: 'הערות נוספות'
+      };
+      return labels[key] || key;
+    }
+  </script>
+</body>
+</html>
