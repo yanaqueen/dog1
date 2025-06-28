@@ -1,8 +1,8 @@
 {
   "name": "יאנה ברגמן - מאלפת כלבים מוסמכת",
   "short_name": "יאנה ברגמן",
-  "start_url": "/dog1",
-  "scope": "/",
+  "start_url": "/dog1/",
+  "scope": "/dog1/",
   "display": "standalone",
   "background_color": "#FFF8F0",
   "theme_color": "#D8B4E2",
