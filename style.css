@@ -358,7 +358,7 @@ blockquote footer {
 }
 
 
-#installBtn {
+#installButton {
   position: fixed;
   bottom: 20px;
   left: 50%;
@@ -376,7 +376,7 @@ blockquote footer {
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-#installBtn:hover {
+#installButton:hover {
   background-color: #a06dad;
   box-shadow: 0 0 16px #a06dad;
 }
