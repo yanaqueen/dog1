@@ -2,8 +2,9 @@ const content = document.getElementById('content');
 
 const pages = {
   home: `
+  <h2 style="font-size: 1rem; margin-bottom: 1rem; color: var(--accent);">🐾 יאנה ברגמן – אילוף כלבים מקצועי בגישה חיובית</h2>
     <section class="hero">
-      <h2>🐾 יאנה ברגמן – אילוף כלבים מקצועי בגישה חיובית</h2>
+      
       <p>מאמינה בקשר של אמון, אהבה והבנה. תוכניות אילוף מותאמות אישית, תוצאות מוכחות וחווית למידה מהנה לך ולכלב שלך.</p>
       <button onclick="navigate('contact')">קבעו שיחת ייעוץ חינם</button>
     </section>
@@ -28,7 +29,9 @@ services: `
   <h2>✔️ השירותים שלי</h2>
   <ul class="service-list">
 <li>
-  <button class="service-toggle" onclick="toggleServiceDetails('personalTraining')">🐶 אילוף אישי בבית הלקוח</button>
+  <button class="service-toggle" onclick="toggleServiceDetails('personalTraining')">
+  🐶 אילוף אישי בבית הלקוח <span class="arrow">▼</span>
+</button>
   <div id="personalTraining" class="service-details" style="display:none;">
     <h3>🐶 אילוף כלבים בבית הלקוח – הדרך הנכונה לחינוך והתאמה אישית</h3>
     <p>
@@ -73,7 +76,9 @@ services: `
 
 
 <li>
-  <button class="service-toggle" onclick="toggleServiceDetails('behaviorFix')">🦴 תיקון בעיות התנהגות</button>
+      <button class="service-toggle" onclick="toggleServiceDetails('behaviorFix')">
+      🦴 תיקון בעיות התנהגות <span class="arrow">▼</span>
+    </button>
   <div id="behaviorFix" class="service-details" style="display:none;">
     <h3>🦴 טיפול בבעיות התנהגות – תהליך אישי ומותאם לכלב שלך</h3>
     <p>
@@ -111,7 +116,10 @@ services: `
 </li>
 
 <li>
-  <button class="service-toggle" onclick="toggleServiceDetails('groupCourse')">🐾 קורס קבוצתי</button>
+  <button class="service-toggle" onclick="toggleServiceDetails('groupCourse')">
+  🐾 קורס קבוצתי <span class="arrow">▼</span>
+</button>
+
   <div id="groupCourse" class="service-details" style="display:none;">
     <h3>🐾 קורס אילוף קבוצתי – לומדים יחד, נהנים יחד</h3>
     <p>
@@ -154,7 +162,9 @@ services: `
 
 
 <li>
-  <button class="service-toggle" onclick="toggleServiceDetails('puppyTraining')">🐾 אילוף גורים לצרכים</button>
+  <button class="service-toggle" onclick="toggleServiceDetails('puppyTraining')">
+      🐾 אילוף גורים לצרכים <span class="arrow">▼</span>
+    </button>
   <div id="puppyTraining" class="service-details" style="display:none;">
     <h3>🐾 אילוף גורים לצרכים – התחלה ברגל ימין לחיים משותפים</h3>
     <p>
@@ -195,7 +205,9 @@ services: `
 
 
 <li>
-  <button class="service-toggle" onclick="toggleServiceDetails('adoptionAdvice')">🐕‍🦺 ייעוץ לפני אימוץ</button>
+  <button class="service-toggle" onclick="toggleServiceDetails('adoptionAdvice')">
+      🐕‍🦺 ייעוץ לפני אימוץ <span class="arrow">▼</span>
+    </button>
   <div id="adoptionAdvice" class="service-details" style="display:none;">
     <h3>🐕‍🦺 ייעוץ מקצועי לפני אימוץ כלב – לבחור נכון ולבנות התחלה טובה</h3>
     <p>
@@ -448,7 +460,14 @@ services: `
 function navigate(page) {
   content.innerHTML = pages[page] || pages.home;
   window.scrollTo(0, 0);
+
+  // אם ביקשו לפתוח את האבחון
+  if (page === 'contact' && window.shouldOpenDiagnosisForm) {
+    setTimeout(() => loadDiagnosisForm(), 100);
+    window.shouldOpenDiagnosisForm = false;
+  }
 }
+
 
 
 function openLightbox(src, alt) {
@@ -750,12 +769,21 @@ function attachContactFormHandler() {
 
 function toggleServiceDetails(id) {
   const el = document.getElementById(id);
+  const button = document.querySelector(`button[onclick*="${id}"]`);
+  const arrow = button.querySelector('.arrow');
+
   if (el.style.display === 'none') {
     el.style.display = 'block';
+    button.classList.add('open');
+    if (arrow) arrow.textContent = '◄';
   } else {
     el.style.display = 'none';
+    button.classList.remove('open');
+    if (arrow) arrow.textContent = '▼';
   }
 }
+
+
 
 
 
@@ -793,6 +821,10 @@ installButton.addEventListener('click', async () => {
 
 
 
+function openDiagnosisFromFooter() {
+  window.shouldOpenDiagnosisForm = true;
+  navigate('contact');
+}
 
 
 
