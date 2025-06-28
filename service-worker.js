@@ -14,7 +14,7 @@ self.addEventListener('install', event => {
         './J4.jpg',
         './J5.jpg',
         './J7.jpg',
-        './Y1.jpg'
+        './Y1.png'
       ]);
 
     })
