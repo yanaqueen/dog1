@@ -7,10 +7,6 @@
 }
 
 
-
-
-
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,7 +14,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Assistant', sans-serif;
   background-color: var(--background);
   color: var(--text);
   line-height: 1.6;
@@ -35,8 +31,9 @@ header {
 header h1 {
   margin-bottom: 0.5rem;
   color: var(--text);
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
+
 
 nav {
   position: relative;
@@ -59,7 +56,7 @@ nav button {
 }
 
 nav button:hover {
-  background-color: #a06dad;
+  background-color: #008B99;
 }
 
 main {
@@ -302,7 +299,7 @@ blockquote footer {
 
 #diagnosisContainer h3 {
   text-align: center;
-  color: #6a1b9a;
+  color: #008B99;
   margin-bottom: 20px;
 }
 
@@ -326,7 +323,7 @@ blockquote footer {
 #diagnosisContainer button {
   margin-top: 30px;
   padding: 12px 25px;
-  background-color: #6a1b9a;
+  background-color: #00e1ff;
   color: white;
   font-size: 1.1em;
   border: none;
@@ -409,6 +406,8 @@ button[type="submit"]:hover,
 }
 
 .service-list button {
+  width: 100%;
+  max-width: 400px;
   background-color: var(--accent);
   color: white;
   border: none;
@@ -439,7 +438,44 @@ button[type="submit"]:hover,
 
 
 
+.contact-footer {
+  background-color: #f0f0f0;
+  padding: 1rem 0;
+  text-align: center;
+}
 
+.contact-footer .contact-links i {
+  font-size: 1.3rem;
+  color: var(--accent, #007B7F);
+  transition: color 0.3s;
+}
+
+.contact-footer .contact-links a:hover i {
+  color: #005f66;
+}
+
+
+.contact-footer .contact-links a {
+  text-decoration: none;
+  color: var(--text, #333);
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.3s;
+}
+
+
+
+.service-list button .arrow {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.service-list button.open .arrow {
+  transform: rotate(-180deg);
+}
 
 
 
