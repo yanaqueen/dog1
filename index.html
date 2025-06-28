@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>יאנה ברגמן - אילוף כלבים מקצועי בגישה חיובית</title>
+  <meta name="description" content="יאנה ברגמן – מאלפת כלבים מוסמכת עם גישה חיובית ואישית. אילוף בבית הלקוח, קורסים קבוצתיים וייעוץ מקצועי. צרו קשר לשיחת ייעוץ חינם!">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+
+</head>
+
+<body>
+  <header>
+    <h1>🐾 יאנה ברגמן – מאלפת כלבים מוסמכת</h1>
+    <nav>
+  <button class="hamburger" aria-label="פתח תפריט ניווט" onclick="toggleMenu()">☰</button>
+
+  <div id="menu" class="menu">
+    <button onclick="navigate('home');toggleMenu()">בית</button>
+    <button onclick="navigate('about');toggleMenu()">אודות</button>
+    <button onclick="navigate('services');toggleMenu()">שירותים</button>
+    <button onclick="navigate('testimonials');toggleMenu()">המלצות</button>
+    <button onclick="navigate('gallery');toggleMenu()">גלריה</button>
+    <button onclick="navigate('contact');toggleMenu()">צור קשר</button>
+  </div>
+</nav>
+
+  </header>
+
+  <main id="content"></main>
+
+  <footer>
+    <p>&copy; 2025 יאנה ברגמן – מאלפת כלבים מוסמכת</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

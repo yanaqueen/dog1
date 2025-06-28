@@ -1,0 +1,371 @@
+:root {
+  --primary: #D8B4E2;
+  --background: #FFF8F0;
+  --text: #333333;
+  --accent: #B481C5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  direction: rtl;
+}
+
+header {
+  background-color: var(--primary);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  font-size: 1.4rem;
+}
+
+nav {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+nav button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+nav button:hover {
+  background-color: #a06dad;
+}
+
+main {
+  padding: 1rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+
+section p, section ul, section form {
+  margin-top: 0.5rem;
+}
+
+ul {
+  list-style-type: disc;
+  padding-inline-start: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--primary);
+  color: var(--text);
+}
+
+button[type="submit"] {
+  background-color: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #a06dad;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(216, 180, 226, 0.8), rgba(255, 248, 240, 0.95)), url('Y1.png') center/cover no-repeat;
+  text-align: center;
+  padding: 3rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.hero p {
+  max-width: 500px;
+  margin: 0 auto 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.hero button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.hero button:hover {
+  background-color: #a06dad;
+  transform: scale(1.05);
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid var(--accent);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Forms */
+form label {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Testimonials */
+blockquote {
+  border-right: 4px solid var(--accent);
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+blockquote footer {
+  margin-top: 0.5rem;
+  text-align: left;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.lightbox p {
+  color: var(--background);
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+
+.hamburger {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 700px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary);
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 0;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu button {
+    width: 100%;
+    margin: 0.3rem 0;
+  }
+}
+.error {
+  color: red;
+  font-size: 0.9rem;
+}
+.success {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  display: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+#diagnosisContainer {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  direction: rtl;
+  max-width: 800px;
+}
+
+#diagnosisContainer h3 {
+  text-align: center;
+  color: #6a1b9a;
+  margin-bottom: 20px;
+}
+
+#diagnosisContainer form label {
+  display: block;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+#diagnosisContainer input[type="text"],
+#diagnosisContainer select,
+#diagnosisContainer textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #b0bec5;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+#diagnosisContainer button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  background-color: #6a1b9a;
+  color: white;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.6rem 1rem;
+  border: 1px solid #b0bec5;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 1rem;
+  line-height: 1.2;
+  direction: rtl;
+}
+
+.checkbox-group label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.checkbox-group label:hover {
+  background-color: #f6effa;
+  border-color: var(--accent);
+}
+
+
+
+
+
+
+
+
+@media (min-width: 600px) {
+  nav button {
+    font-size: 1.1rem;
+  }
+}
