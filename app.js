@@ -422,6 +422,35 @@ function attachDiagnosisFormHandler() {
   });
 }
 
+let deferredPrompt;
+const installButton = document.getElementById('installButton');
+
+// 1. מאזין לאירוע beforeinstallprompt
+window.addEventListener('beforeinstallprompt', (e) => {
+  // למנוע את ה-default
+  e.preventDefault();
+  // לשמור את האירוע
+  deferredPrompt = e;
+  // להציג את הכפתור
+  installButton.style.display = 'block';
+});
+
+// 2. כאשר לוחצים על הכפתור
+installButton.addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const choiceResult = await deferredPrompt.userChoice;
+    if (choiceResult.outcome === 'accepted') {
+      console.log('המשתמש התקין את האפליקציה');
+    } else {
+      console.log('המשתמש ביטל את ההתקנה');
+    }
+    deferredPrompt = null;
+    installButton.style.display = 'none';
+  }
+});
+
+
 
 
 
