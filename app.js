@@ -83,6 +83,9 @@ const pages = {
       </label>
       <button type="submit">שלח</button>
     </form>
+      <script>
+    setTimeout(() => { attachContactFormHandler(); }, 0);
+  </script>
     <p>📱 <strong>טלפון ישיר:</strong> <a href="tel:0545615060">054-5615060</a></p>
     <p>💬 <strong>שלח הודעה ב-WhatsApp:</strong> <a href="https://wa.me/972545615060" target="_blank">התחל שיחה</a></p>
     <p class="expand-link">
@@ -422,6 +425,85 @@ function attachDiagnosisFormHandler() {
   });
 }
 
+
+
+
+
+
+function attachContactFormHandler() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // איסוף ערכים
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    let valid = true;
+
+    document.getElementById('nameError').textContent = '';
+    document.getElementById('phoneError').textContent = '';
+    document.getElementById('messageError').textContent = '';
+    document.getElementById('successMessage').style.display = 'none';
+
+    if (name === '') {
+      document.getElementById('nameError').textContent = 'נא להזין שם מלא';
+      valid = false;
+    }
+
+    if (!/^[0-9]{9,10}$/.test(phone)) {
+      document.getElementById('phoneError').textContent = 'מספר טלפון לא תקין';
+      valid = false;
+    }
+
+    if (message === '') {
+      document.getElementById('messageError').textContent = 'נא להזין הודעה';
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    try {
+      const response = await fetch('https://formspree.io/f/mzzgyvbr', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          שם: name,
+          טלפון: phone,
+          הודעה: message
+        })
+      });
+
+      if (response.ok) {
+        document.getElementById('successMessage').textContent = '✅ תודה! ההודעה נשלחה בהצלחה. נחזור אליך בהקדם.';
+        document.getElementById('successMessage').style.display = 'block';
+        form.reset();
+        window.scrollTo(0, 0);
+      } else {
+        document.getElementById('successMessage').textContent = '⚠️ שגיאה בשליחה. נסה שוב מאוחר יותר.';
+        document.getElementById('successMessage').style.display = 'block';
+      }
+    } catch (error) {
+      document.getElementById('successMessage').textContent = '⚠️ שגיאה בחיבור. נסה שוב.';
+      document.getElementById('successMessage').style.display = 'block';
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
 let deferredPrompt;
 const installButton = document.getElementById('installButton');
 
@@ -449,6 +531,8 @@ installButton.addEventListener('click', async () => {
     installButton.style.display = 'none';
   }
 });
+
+
 
 
 
