@@ -1,6 +1,9 @@
+const CACHE_NAME = 'app-cache-v2';
+
 self.addEventListener('install', event => {
+  self.skipWaiting();
   event.waitUntil(
-    caches.open('app-cache').then(cache => {
+    caches.open(CACHE_NAME).then(cache => {
       return cache.addAll([
         './index.html',
         './style.css',
@@ -16,8 +19,20 @@ self.addEventListener('install', event => {
         './J7.jpg',
         './Y1.png'
       ]);
-
     })
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(
+        keys.filter(key => key !== CACHE_NAME)
+            .map(key => caches.delete(key))
+      );
+      await self.clients.claim();
+    })()
   );
 });
 
