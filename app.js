@@ -486,7 +486,7 @@ document.addEventListener('submit', async (e) => {
 
   // שליחה ל-Formspree עם JSON
   try {
-    const response = await fetch('https://formspree.io/f/mzzgyvbr', {
+    const response = await fetch('https://formspree.io/f/manawzrv', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -533,7 +533,7 @@ async function loadDiagnosisForm() {
 
 
 
-const FORMSPREE_URL = 'https://formspree.io/f/xpwrklpy'; // כתובת ה-Formspree שלך
+const FORMSPREE_URL = 'https://formspree.io/f/meovjwyj'; // כתובת ה-Formspree שלך
 
 document.addEventListener('submit', async (e) => {
   if (e.target.id !== 'diagnosisForm') return;
@@ -704,7 +704,7 @@ function attachContactFormHandler() {
     if (!valid) return;
 
     try {
-      const response = await fetch('https://formspree.io/f/mzzgyvbr', {
+      const response = await fetch('https://formspree.io/f/manawzrv', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -803,3 +803,4 @@ function openDiagnosisFromFooter() {
 
 // Load home page by default
 navigate('home');
+
